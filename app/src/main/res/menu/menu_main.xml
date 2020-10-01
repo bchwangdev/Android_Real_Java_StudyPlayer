@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/btnLock"
+        android:title="44"
+        android:icon="@drawable/ic_lock_open_black_24dp"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/btnFolder"
+        android:title="foler"
+        android:icon="@drawable/ic_folder_black_24dp"
+        app:showAsAction="always" />
+</menu>

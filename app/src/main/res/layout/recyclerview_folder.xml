@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="6"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp">
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_marginLeft="5dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_folder_open_black_24dp"/>
+        <TextView
+            android:id="@+id/tvFolderSongsCount"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorMainText"
+            android:text="222"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvFolderName"
+        android:layout_weight="4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textSize="25dp"
+        android:textColor="@color/colorMainText"
+        android:layout_marginLeft="10dp"
+        android:text="Album Name"/>
+
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center">
+
+        <CheckBox
+            android:id="@+id/chkFolder"
+            android:buttonTint="@color/colorMainText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="1.2"
+            android:scaleY="1.2"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

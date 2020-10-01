@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorControllerBack">
+
+    <!-- 툴바표시하기1/2 -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:titleTextColor="@color/colorMainText"
+        android:background="#494C51">
+
+        <TextView
+            android:id="@+id/musicTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="22dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:background="@color/colorRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        android:scrollbarSize="15dp"
+        android:scrollbarThumbVertical="@android:color/darker_gray"
+        android:fadeScrollbars="true"
+        android:layout_weight="15" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="15dp">
+
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="speed : "
+            android:textColor="@color/colorMainText"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/tvMusicSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/txt1"
+            android:text="1.0"
+            android:textColor="@color/colorMainText"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/tvMusicSpeed"
+            android:text="skip : "
+            android:textColor="@color/colorMainText"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/tvMusicSkip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/txt2"
+            android:text="3"
+            android:textColor="@color/colorMainText"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/musicCurrentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/musicTotalTime"
+            android:text="00:00"
+            android:textColor="@color/colorMainText"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/musicTotalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text=" / 00:00"
+            android:textColor="@color/colorMainText"
+            android:textSize="18dp" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvMusicSpeed"
+            android:thumb="@drawable/seekbar_thumb"
+            android:progressDrawable="@drawable/seekbar_progress"
+            android:layout_marginTop="10dp" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="3"
+        android:weightSum="8"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:weightSum="4">
+            <ImageButton
+                android:id="@+id/btnSpeedUp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:onClick="btnClick"
+                android:src="@drawable/ic_arrow_drop_up_black_24dp"/>
+            <TextView
+                android:id="@+id/tvSpeedInBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorMainText"
+                android:text="speed"/>
+            <ImageButton
+                android:id="@+id/btnSpeedDown"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:onClick="btnClick"
+                android:src="@drawable/ic_arrow_drop_down_black_24dp"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:onClick="btnClick"
+            android:src="@drawable/ic_fast_rewind_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/btnPlay"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:onClick="btnClick"
+            android:src="@drawable/ic_play_arrow_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/btnForward"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:onClick="btnClick"
+            android:src="@drawable/ic_fast_forward_black_24dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:weightSum="4">
+            <ImageButton
+                android:id="@+id/btnSkipUp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:onClick="btnClick"
+                android:src="@drawable/ic_arrow_drop_up_black_24dp"/>
+            <TextView
+                android:id="@+id/tvSkipInBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorMainText"
+                android:text="skip"/>
+            <ImageButton
+                android:id="@+id/btnSkipDown"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:onClick="btnClick"
+                android:src="@drawable/ic_arrow_drop_down_black_24dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

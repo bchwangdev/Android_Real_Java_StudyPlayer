@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="15"
+    android:paddingTop="3dp"
+    android:paddingBottom="3dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp">
+
+    <TextView
+        android:id="@+id/tvMusicNo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="@color/colorMainText"
+        android:text="222"/>
+
+    <TextView
+        android:id="@+id/tvMusicName"
+        android:layout_width="0dp"
+        android:textColor="@color/colorMainText"
+        android:layout_height="wrap_content"
+        android:layout_weight="12"
+        android:singleLine="true"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:gravity="center_vertical"
+        android:ellipsize="end"
+        android:textSize="20dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="안녕하세요"/>
+
+    <ImageView
+        android:id="@+id/ivMusicInfo"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.5"
+        android:layout_gravity="center"
+        android:background="?android:attr/selectableItemBackground"
+        android:src="@drawable/ic_info_black_24dp"/>
+
+</LinearLayout>

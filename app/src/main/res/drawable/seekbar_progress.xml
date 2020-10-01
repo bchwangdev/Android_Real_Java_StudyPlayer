@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--시크바 배경 아직 지나가지 않은 시크바색상-->
+    <item android:id="@android:id/background">
+        <shape android:shape="line">
+            <stroke
+                android:width="5dp"
+                android:color="@color/colorMainText" />
+        </shape>
+    </item>
+
+    <!-- 시크바 배경2 지나온 시크바 색상-->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="line">
+                <stroke
+                    android:width="6dp"
+                    android:color="@color/colorSeekBar" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>
+
+
+
+
+
+
+
+
