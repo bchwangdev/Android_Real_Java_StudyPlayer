@@ -14,6 +14,12 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.io.File;
 import java.util.ArrayList;
 
@@ -28,11 +34,26 @@ public class FolderActivity extends AppCompatActivity implements RecyclerViewFol
     ArrayList<mFolder> arrInfoFolder = new ArrayList<>();
     ArrayList<Integer> arrCheckedFolder = new ArrayList<>();
 
+    AdView mAdView, mAdView2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_folder);
 
+        //광고
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView = findViewById(R.id.adView);
+        mAdView2 = findViewById(R.id.adView2);
+        mAdView.loadAd(adRequest);
+        mAdView2.loadAd(adRequest);
+
+        //findViewById
         btnGetFolder = findViewById(R.id.btnGetFolder);
         recyclerView = findViewById(R.id.recyclerView);
 

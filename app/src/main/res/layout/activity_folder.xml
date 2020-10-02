@@ -5,14 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="9"
+    android:weightSum="10"
     tools:context=".FolderActivity">
 
-    <TextView
-        android:text="광고"
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-7618046531275376/5949516470">
+    </com.google.android.gms.ads.AdView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -25,6 +32,18 @@
         android:scrollbarThumbVertical="@android:color/darker_gray"
         android:scrollbars="vertical" />
 
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-7618046531275376/5949516470">
+    </com.google.android.gms.ads.AdView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -32,6 +51,8 @@
         android:layout_weight="1"
         android:background="@color/colorControllerBack"
         android:gravity="center">
+
+
 
         <Button
             android:id="@+id/btnGetFolder"
@@ -42,6 +63,7 @@
             android:padding="20dp"
             android:text="GET Folder" />
     </LinearLayout>
+
 
 
 </LinearLayout>

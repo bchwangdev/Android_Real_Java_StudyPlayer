@@ -28,6 +28,11 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.karumi.dexter.Dexter;
@@ -44,7 +49,6 @@ import java.util.concurrent.TimeUnit;
 
 // 참고한 사이트 ▶ https://www.tutorialspoint.com/android/android_mediaplayer.htm
 public class MainActivity extends AppCompatActivity implements RecyclerViewMainAdapter.RecyclerViewClickListener {
-
     Toolbar toolbar;
     TextView tvMusicCurrentTime, tvMusicTotalTime, tvMusicSpeed, tvMusicSkip, tvSkipInBtn, tvSpeedInBtn;
     SeekBar sbSeekBar;
@@ -71,6 +75,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewMainA
     int intSetSkipTime;
     float fltSetSpeed;
 
+    //광고
+    private InterstitialAd mInterstitialAd;
+
     //툴바표시하기
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -87,6 +94,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewMainA
                 //폴더 가져오기
                 Intent myFileIntent = new Intent(this, FolderActivity.class);
                 startActivityForResult(myFileIntent, 1);
+                //광고 표시
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                mInterstitialAd.show();
                 break;
             case R.id.btnLock:
                 if (btnSkipDown.getVisibility() == View.VISIBLE) {
@@ -145,6 +155,15 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewMainA
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //광고 불러오기
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {}
+        });
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-7618046531275376/4323258397");
+
+        //findViewById
         tvMusicCurrentTime = findViewById(R.id.musicCurrentTime);
         tvMusicTotalTime = findViewById(R.id.musicTotalTime);
         tvMusicSpeed = findViewById(R.id.tvMusicSpeed);
